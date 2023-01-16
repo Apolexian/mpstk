@@ -147,14 +147,14 @@ class MPSTParser extends BaseParser {
     }
   }
 
-  def selectSym: Parser[String] = "⊕" | "(+)"
+  def selectSym: Parser[String] = "⊕" | "(+)" | "<+>"
   def select: Parser[Select] = {
     role ~ (selectSym ~> choices(tpe, mpst, cfg)) ^^ { rc =>
       Select(rc._1, Map(rc._2:_*))
     }
   }
 
-  def recSym: Parser[String] = "μ" | "rec"
+  def recSym: Parser[String] = "μ" | "rec" | "mu"
   def rec: Parser[Rec] = (((recSym ~ "(") ~> recvar <~ ")") ~ mpst) ^^ { rm =>
     Rec(rm._1, rm._2)
   } ^? ({
