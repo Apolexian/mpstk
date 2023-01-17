@@ -193,7 +193,7 @@ class Spec(global: Option[mpstk.GlobalType], ctx: mpstk.Context,
     GroundType.SegSynAckSet                -> "pSegSynAckSet",
     GroundType.Data                        -> "pData"
 
-  ), 10) // The base must be large enough to skip indexes for the above types
+  ), 20) // The base must be large enough to skip indexes for the above types
   private val labels = FreshNames[Label]("Message labels", "m(", ")")
   private val processes = FreshNames[(Channel, RecVar)](
     "Processes generated from multiparty session types recursion variables",
