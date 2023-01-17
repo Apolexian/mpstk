@@ -29,7 +29,7 @@ abstract trait BaseParser extends RegexParsers {
   def label: Parser[Label] = identifier ^^ { l => Label(l) }
   def role:  Parser[Role]  = identifier ^^ { r => Role(r) }
 
-  def ground: Parser[GroundType] = bool | int | string | unit
+  def ground: Parser[GroundType] = bool | int | string | unit | tcbinfo | errorDiffservSec | errorInsuffResources | errorConnectionExists | errorRemoteUnspecified | errorConnectionIllegal | errorConnectionDoesNotExist | socketFd | segRstSet | rstNotif | segAckSet | seg | segSynSet | segSynAckSet | data
 
   def bool: Parser[GroundType.Bool.type] = "[Bb]ool".r ^^ {
     _ => GroundType.Bool
@@ -43,7 +43,52 @@ abstract trait BaseParser extends RegexParsers {
   def unit: Parser[GroundType.Unit.type] = "[Uu]nit".r ^^ {
     _ => GroundType.Unit
   }
-
+  def tcbinfo: Parser[GroundType.TcbInfo.type] = "TcbInfo".r ^^ {
+    _ => GroundType.TcbInfo
+  }
+  def errorDiffservSec: Parser[GroundType.ErrorDiffservSecurity.type] = "ErrorDiffservSecurity".r ^^ {
+    _ => GroundType.ErrorDiffservSecurity
+  }
+  def errorInsuffResources: Parser[GroundType.ErrorInsufficientResources.type] = "ErrorInsufficientResources".r ^^ {
+    _ => GroundType.ErrorInsufficientResources
+  }
+  def errorConnectionExists: Parser[GroundType.ErrorConnectionExists.type] = "ErrorConnectionExists".r ^^ {
+    _ => GroundType.ErrorConnectionExists
+  }
+  def errorRemoteUnspecified: Parser[GroundType.ErrorRemoteUnspecified.type] = "ErrorRemoteUnspecified".r ^^ {
+    _ => GroundType.ErrorRemoteUnspecified
+  }
+  def errorConnectionIllegal: Parser[GroundType.ErrorConnectionIllegal.type] = "ErrorConnectionIllegal".r ^^ {
+    _ => GroundType.ErrorConnectionIllegal
+  }
+  def errorConnectionDoesNotExist: Parser[GroundType.ErrorConnectionDoesNotExist.type] = "ErrorConnectionDoesNotExist".r ^^ {
+    _ => GroundType.ErrorConnectionDoesNotExist
+  }
+  def socketFd: Parser[GroundType.SocketFd.type] = "SocketFd".r ^^ {
+    _ => GroundType.SocketFd
+  }
+  def segRstSet: Parser[GroundType.SegRstSet.type] = "SegRstSet".r ^^ {
+    _ => GroundType.SegRstSet
+  }
+  def rstNotif: Parser[GroundType.RstNotif.type] = "RstNotif".r ^^ {
+    _ => GroundType.RstNotif
+  }
+  def segAckSet: Parser[GroundType.SegAckSet.type] = "SegAckSet".r ^^ {
+    _ => GroundType.SegAckSet
+  }
+  def seg: Parser[GroundType.Seg.type] = "Seg".r ^^ {
+    _ => GroundType.Seg
+  }
+  def segSynSet: Parser[GroundType.SegSynSet.type] = "SegSynSet".r ^^ {
+    _ => GroundType.SegSynSet
+  }
+  def segSynAckSet: Parser[GroundType.SegSynAckSet.type] = "SegSynAckSet".r ^^ {
+    _ => GroundType.SegSynAckSet
+  }
+  def data: Parser[GroundType.Data.type] = "Data".r ^^ {
+    _ => GroundType.Data
+  }
+  
   def choice[A, PC <: BasePayloadCont[A]](tpe: Parser[Type],
                              cont: Parser[A],
                              cfg: ParserConfig[A, PC]): Parser[(Label, PC)] = {

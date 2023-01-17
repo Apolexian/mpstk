@@ -172,11 +172,27 @@ class Spec(global: Option[mpstk.GlobalType], ctx: mpstk.Context,
   private val payloadTypes = FreshNames[Type]("Payload types",
                                               "p(", ")", Map[Type, String](
     // NOTE: must be kept in sync with resources/mpst-preamble.mcrl2
-    mpstk.End         -> "pEnd", 
-    GroundType.Bool   -> "pBool",
-    GroundType.Int    -> "pInt",
-    GroundType.String -> "pString",
-    GroundType.Unit   -> "pUnit"
+    mpstk.End                              -> "pEnd", 
+    GroundType.Bool                        -> "pBool",
+    GroundType.Int                         -> "pInt",
+    GroundType.String                      -> "pString",
+    GroundType.Unit                        -> "pUnit",
+    GroundType.TcbInfo                     -> "pTcbInfo",
+    GroundType.ErrorDiffservSecurity       -> "pEDiffservSec",
+    GroundType.ErrorInsufficientResources  -> "pEResources",
+    GroundType.ErrorConnectionExists       -> "pEConnectionExists",
+    GroundType.ErrorRemoteUnspecified      -> "pERemoteUnspecified",
+    GroundType.ErrorConnectionIllegal      -> "pEConnectionIllegal",
+    GroundType.ErrorConnectionDoesNotExist -> "pEConnectionDoesNotExist",
+    GroundType.SocketFd                    -> "pSocketFd",
+    GroundType.SegRstSet                   -> "pSegRstSet",
+    GroundType.RstNotif                    -> "pRstNotif",
+    GroundType.SegAckSet                   -> "pSegAckSet",
+    GroundType.Seg                         -> "pSeg",
+    GroundType.SegSynSet                   -> "pSegSynSet",
+    GroundType.SegSynAckSet                -> "pSegSynAckSet",
+    GroundType.Data                        -> "pData"
+
   ), 10) // The base must be large enough to skip indexes for the above types
   private val labels = FreshNames[Label]("Message labels", "m(", ")")
   private val processes = FreshNames[(Channel, RecVar)](

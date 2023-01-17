@@ -49,6 +49,51 @@ object GroundType {
   case object Unit extends GroundType {
     override def toString = "unit"
   }
+  case object TcbInfo extends GroundType {
+    override def toString = "tcbInfo"
+  }
+  case object ErrorDiffservSecurity extends GroundType {
+    override def toString = "errorDiffservSecurity"
+  }
+  case object ErrorInsufficientResources extends GroundType {
+    override def toString = "errorInsufficientResources"
+  }
+  case object ErrorConnectionExists extends GroundType {
+    override def toString = "errorConnectionExists"
+  }
+  case object ErrorRemoteUnspecified extends GroundType {
+    override def toString = "errorRemoteUnspecified"
+  }
+  case object ErrorConnectionIllegal extends GroundType {
+    override def toString = "errorConnectionIllegal"
+  }
+  case object ErrorConnectionDoesNotExist extends GroundType {
+    override def toString = "errorConnectionDoesNotExist"
+  }
+  case object SocketFd extends GroundType {
+    override def toString = "socketFd"
+  }
+  case object SegRstSet extends GroundType {
+    override def toString = "segRstSet"
+  }
+  case object RstNotif extends GroundType {
+    override def toString = "rstNotif"
+  }
+  case object SegAckSet extends GroundType {
+    override def toString = "segAckSet"
+  }
+  case object Seg extends GroundType {
+    override def toString = "seg"
+  }
+  case object SegSynSet extends GroundType {
+    override def toString = "segSynSet"
+  }
+  case object SegSynAckSet extends GroundType {
+    override def toString = "segSynAckSet"
+  }
+  case object Data extends GroundType {
+    override def toString = "data"
+  }
 }
 
 
