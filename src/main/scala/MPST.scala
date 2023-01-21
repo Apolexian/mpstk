@@ -50,49 +50,49 @@ object GroundType {
     override def toString = "unit"
   }
   case object TcbInfo extends GroundType {
-    override def toString = "tcbInfo"
+    override def toString = "TcbInfo"
   }
   case object ErrorDiffservSecurity extends GroundType {
-    override def toString = "errorDiffservSecurity"
+    override def toString = "ErrorDiffservSecurity"
   }
   case object ErrorInsufficientResources extends GroundType {
-    override def toString = "errorInsufficientResources"
+    override def toString = "ErrorInsufficientResources"
   }
   case object ErrorConnectionExists extends GroundType {
-    override def toString = "errorConnectionExists"
+    override def toString = "ErrorConnectionExists"
   }
   case object ErrorRemoteUnspecified extends GroundType {
-    override def toString = "errorRemoteUnspecified"
+    override def toString = "ErrorRemoteUnspecified"
   }
   case object ErrorConnectionIllegal extends GroundType {
-    override def toString = "errorConnectionIllegal"
+    override def toString = "ErrorConnectionIllegal"
   }
   case object ErrorConnectionDoesNotExist extends GroundType {
-    override def toString = "errorConnectionDoesNotExist"
+    override def toString = "ErrorConnectionDoesNotExist"
   }
   case object SocketFd extends GroundType {
-    override def toString = "socketFd"
+    override def toString = "SocketFd"
   }
   case object SegRstSet extends GroundType {
-    override def toString = "segRstSet"
+    override def toString = "SegRstSet"
   }
   case object RstNotif extends GroundType {
-    override def toString = "rstNotif"
+    override def toString = "RstNotif"
   }
   case object SegAckSet extends GroundType {
-    override def toString = "segAckSet"
+    override def toString = "SegAckSet"
   }
-  case object Seg extends GroundType {
-    override def toString = "seg"
+  case object SegDataCarrying extends GroundType {
+    override def toString = "SegDataCarrying"
   }
   case object SegSynSet extends GroundType {
-    override def toString = "segSynSet"
+    override def toString = "SegSynSet"
   }
   case object SegSynAckSet extends GroundType {
-    override def toString = "segSynAckSet"
+    override def toString = "SegSynAckSet"
   }
   case object Data extends GroundType {
-    override def toString = "data"
+    override def toString = "Data"
   }
 }
 

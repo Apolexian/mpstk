@@ -76,8 +76,8 @@ abstract trait BaseParser extends RegexParsers {
   def segAckSet: Parser[GroundType.SegAckSet.type] = "SegAckSet".r ^^ {
     _ => GroundType.SegAckSet
   }
-  def seg: Parser[GroundType.Seg.type] = "Seg".r ^^ {
-    _ => GroundType.Seg
+  def seg: Parser[GroundType.SegDataCarrying.type] = "SegDataCarrying".r ^^ {
+    _ => GroundType.SegDataCarrying
   }
   def segSynSet: Parser[GroundType.SegSynSet.type] = "SegSynSet".r ^^ {
     _ => GroundType.SegSynSet

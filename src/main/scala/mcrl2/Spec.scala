@@ -188,7 +188,7 @@ class Spec(global: Option[mpstk.GlobalType], ctx: mpstk.Context,
     GroundType.SegRstSet                   -> "pSegRstSet",
     GroundType.RstNotif                    -> "pRstNotif",
     GroundType.SegAckSet                   -> "pSegAckSet",
-    GroundType.Seg                         -> "pSeg",
+    GroundType.SegDataCarrying             -> "pSegDataCarrying",
     GroundType.SegSynSet                   -> "pSegSynSet",
     GroundType.SegSynAckSet                -> "pSegSynAckSet",
     GroundType.Data                        -> "pData"
