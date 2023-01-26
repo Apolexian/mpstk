@@ -32,7 +32,7 @@ var x, y: Nat;
 eqn p(x) == p(y) = x == y;
 
 % Commonly-used payload types
-map pEnd, pBool, pInt, pString, pUnit, pTcbInfo, pEDiffservSec, pEResources, pEConnectionExists, pERemoteUnspecified, pEConnectionIllegal, pEConnectionDoesNotExist, pSocketFd, pSegRstSet, pRstNotif, pSegAckSet, pSegDataCarrying, pSegSynSet, pSegSynAckSet, pData: Payload;
+map pEnd, pBool, pInt, pString, pUnit, pTcbInfo, pEDiffservSec, pEResources, pEConnectionExists, pERemoteUnspecified, pEConnectionIllegal, pEConnectionDoesNotExist, pSocketFd, pSegRstSet, pRstNotif, pSegAckSet, pSegDataCarrying, pSegSynSet, pSegSynAckSet, pData, pSegFinSet, pSegFinAckSet, pClose, pConnectionAborted: Payload;
 eqn pEnd                     = p(0);
     pBool                    = p(1);
     pInt                     = p(2);
@@ -52,6 +52,10 @@ eqn pEnd                     = p(0);
     pSegSynAckSet            = p(16);
     pData                    = p(17);
     pERemoteUnspecified      = p(18);
+    pSegFinSet               = p(19);
+    pSegFinAckSet            = p(20);
+    pClose                   = p(21);
+    pConnectionAborted       = p(22);
 
 %%% Actions
 act o: Session # Role # Role # Message # Payload; % Output from 1st to 2nd role

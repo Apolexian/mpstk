@@ -29,7 +29,7 @@ abstract trait BaseParser extends RegexParsers {
   def label: Parser[Label] = identifier ^^ { l => Label(l) }
   def role:  Parser[Role]  = identifier ^^ { r => Role(r) }
 
-  def ground: Parser[GroundType] = bool | int | string | unit | tcbinfo | errorDiffservSec | errorInsuffResources | errorConnectionExists | errorRemoteUnspecified | errorConnectionIllegal | errorConnectionDoesNotExist | socketFd | segRstSet | rstNotif | segAckSet | seg | segSynSet | segSynAckSet | data
+  def ground: Parser[GroundType] = bool | int | string | unit | tcbinfo | errorDiffservSec | errorInsuffResources | errorConnectionExists | errorRemoteUnspecified | errorConnectionIllegal | errorConnectionDoesNotExist | socketFd | segRstSet | rstNotif | segAckSet | seg | segSynSet | segSynAckSet | data | segFinSet | segFinAckSet | close | connectionAborted
 
   def bool: Parser[GroundType.Bool.type] = "[Bb]ool".r ^^ {
     _ => GroundType.Bool
@@ -88,7 +88,18 @@ abstract trait BaseParser extends RegexParsers {
   def data: Parser[GroundType.Data.type] = "Data".r ^^ {
     _ => GroundType.Data
   }
-  
+  def segFinSet: Parser[GroundType.SegFinSet.type] = "SegFinSet".r ^^ {
+    _ => GroundType.SegFinSet
+  }
+  def segFinAckSet: Parser[GroundType.SegFinAckSet.type] = "SegFinAckSet".r ^^ {
+    _ => GroundType.SegFinAckSet
+  }
+  def close: Parser[GroundType.Close.type] = "Close".r ^^ {
+    _ => GroundType.Close
+  }
+  def connectionAborted: Parser[GroundType.ConnectionAborted.type] = "ConnectionAborted".r ^^ {
+    _ => GroundType.ConnectionAborted
+  } 
   def choice[A, PC <: BasePayloadCont[A]](tpe: Parser[Type],
                              cont: Parser[A],
                              cfg: ParserConfig[A, PC]): Parser[(Label, PC)] = {

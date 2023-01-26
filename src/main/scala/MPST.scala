@@ -94,6 +94,18 @@ object GroundType {
   case object Data extends GroundType {
     override def toString = "Data"
   }
+  case object SegFinSet extends GroundType {
+    override def toString = "SegFinSet"
+  }
+  case object SegFinAckSet extends GroundType {
+    override def toString = "SegFinAckSet"
+  }
+  case object Close extends GroundType {
+    override def toString = "Close"
+  }
+  case object ConnectionAborted extends GroundType {
+    override def toString = "ConnectionAborted"
+  }
 }
 
 
