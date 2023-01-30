@@ -29,7 +29,7 @@ abstract trait BaseParser extends RegexParsers {
   def label: Parser[Label] = identifier ^^ { l => Label(l) }
   def role:  Parser[Role]  = identifier ^^ { r => Role(r) }
 
-  def ground: Parser[GroundType] = bool | int | string | unit | tcbinfo | errorDiffservSec | errorInsuffResources | errorConnectionExists | errorRemoteUnspecified | errorConnectionIllegal | errorConnectionDoesNotExist | socketFd | segRstSet | rstNotif | segAckSet | seg | segSynSet | segSynAckSet | data | segFinSet | segFinAckSet | close | connectionAborted
+  def ground: Parser[GroundType] = bool | int | string | unit | tcbinfo | errorDiffservSec | errorInsuffResources | errorConnectionExists | errorRemoteUnspecified | errorConnectionIllegal | errorConnectionDoesNotExist | socketFd | segRstSet | rstNotif | segAckSet | seg | segSynSet | segSynAckSet | data | segFinSet | segFinAckSet | close | connectionAborted | okServerReady | aPORDigest | okResp | errPermDenied | sTAT | lIST | rETR | dELE | nOOP | rSET | qUIT | okServerReadyTimestamp | uSER | pASS | okNameValid | errNameInvalid | errInvalidPass | errUnableToLock 
 
   def bool: Parser[GroundType.Bool.type] = "[Bb]ool".r ^^ {
     _ => GroundType.Bool
@@ -99,7 +99,61 @@ abstract trait BaseParser extends RegexParsers {
   }
   def connectionAborted: Parser[GroundType.ConnectionAborted.type] = "ConnectionAborted".r ^^ {
     _ => GroundType.ConnectionAborted
-  } 
+  }
+  def okServerReady: Parser[GroundType.OkServerReady.type] = "OkServerReady".r ^^ {
+    _ => GroundType.OkServerReady
+  }
+  def aPORDigest: Parser[GroundType.APORDigest.type] = "APORDigest".r ^^ {
+    _ => GroundType.APORDigest
+  }
+  def okResp: Parser[GroundType.OkResp.type] = "OkResp".r ^^ {
+    _ => GroundType.OkResp
+  }
+  def errPermDenied: Parser[GroundType.ErrPermDenied.type] = "ErrPermDenied".r ^^ {
+    _ => GroundType.ErrPermDenied
+  }
+  def sTAT: Parser[GroundType.STAT.type] = "STAT".r ^^ {
+    _ => GroundType.STAT
+  }
+  def lIST: Parser[GroundType.LIST.type] = "LIST".r ^^ {
+    _ => GroundType.LIST
+  }
+  def rETR: Parser[GroundType.RETR.type] = "RETR".r ^^ {
+    _ => GroundType.RETR
+  }
+  def dELE: Parser[GroundType.DELE.type] = "DELE".r ^^ {
+    _ => GroundType.DELE
+  }
+  def nOOP: Parser[GroundType.NOOP.type] = "NOOP".r ^^ {
+    _ => GroundType.NOOP
+  }
+  def rSET: Parser[GroundType.RSET.type] = "RSET".r ^^ {
+    _ => GroundType.RSET
+  }
+  def qUIT: Parser[GroundType.QUIT.type] = "QUIT".r ^^ {
+    _ => GroundType.QUIT
+  }
+  def okServerReadyTimestamp: Parser[GroundType.OkServerReadyTimestamp.type] = "OkServerReadyTimestamp".r ^^ {
+    _ => GroundType.OkServerReadyTimestamp
+  }
+  def uSER: Parser[GroundType.USER.type] = "USER".r ^^ {
+    _ => GroundType.USER
+  }
+  def pASS: Parser[GroundType.PASS.type] = "PASS".r ^^ {
+    _ => GroundType.PASS
+  }
+  def okNameValid: Parser[GroundType.OkNameValid.type] = "OkNameValid".r ^^ {
+    _ => GroundType.OkNameValid
+  }
+  def errNameInvalid: Parser[GroundType.ErrNameInvalid.type] = "ErrNameInvalid".r ^^ {
+    _ => GroundType.ErrNameInvalid
+  }
+  def errInvalidPass: Parser[GroundType.ErrInvalidPass.type] = "ErrInvalidPass".r ^^ {
+    _ => GroundType.ErrInvalidPass
+  }
+  def errUnableToLock: Parser[GroundType.ErrUnableToLock.type] = "ErrUnableToLock".r ^^ {
+    _ => GroundType.ErrUnableToLock
+  }
   def choice[A, PC <: BasePayloadCont[A]](tpe: Parser[Type],
                              cont: Parser[A],
                              cfg: ParserConfig[A, PC]): Parser[(Label, PC)] = {

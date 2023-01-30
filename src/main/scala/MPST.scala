@@ -106,6 +106,60 @@ object GroundType {
   case object ConnectionAborted extends GroundType {
     override def toString = "ConnectionAborted"
   }
+  case object OkServerReady extends GroundType {
+    override def toString = "OkServerReady"
+  }
+  case object APORDigest extends GroundType {
+    override def toString = "APORDigest"
+  }
+  case object OkResp extends GroundType {
+    override def toString = "OkResp"
+  }
+  case object ErrPermDenied extends GroundType {
+    override def toString = "ErrPermDenied"
+  }
+  case object STAT extends GroundType {
+    override def toString = "STAT"
+  }
+  case object LIST extends GroundType {
+    override def toString = "LIST"
+  }
+  case object RETR extends GroundType {
+    override def toString = "RETR"
+  }
+  case object DELE extends GroundType {
+    override def toString = "DELE"
+  }
+  case object NOOP extends GroundType {
+    override def toString = "NOOP"
+  }
+  case object RSET extends GroundType {
+    override def toString = "RSET"
+  }
+  case object QUIT extends GroundType {
+    override def toString = "QUIT"
+  }
+  case object OkServerReadyTimestamp extends GroundType {
+    override def toString = "OkServerReadyTimestamp"
+  }
+  case object USER extends GroundType {
+    override def toString = "USER"
+  }
+  case object PASS extends GroundType {
+    override def toString = "PASS"
+  }
+  case object OkNameValid extends GroundType {
+    override def toString = "OkNameValid"
+  }
+  case object ErrNameInvalid extends GroundType {
+    override def toString = "ErrNameInvalid"
+  }
+  case object ErrInvalidPass extends GroundType {
+    override def toString = "ErrInvalidPass"
+  }
+  case object ErrUnableToLock extends GroundType {
+    override def toString = "ErrUnableToLock"
+  }
 }
 
 

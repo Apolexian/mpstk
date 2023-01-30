@@ -32,7 +32,7 @@ var x, y: Nat;
 eqn p(x) == p(y) = x == y;
 
 % Commonly-used payload types
-map pEnd, pBool, pInt, pString, pUnit, pTcbInfo, pEDiffservSec, pEResources, pEConnectionExists, pERemoteUnspecified, pEConnectionIllegal, pEConnectionDoesNotExist, pSocketFd, pSegRstSet, pRstNotif, pSegAckSet, pSegDataCarrying, pSegSynSet, pSegSynAckSet, pData, pSegFinSet, pSegFinAckSet, pClose, pConnectionAborted: Payload;
+map pEnd, pBool, pInt, pString, pUnit, pTcbInfo, pEDiffservSec, pEResources, pEConnectionExists, pERemoteUnspecified, pEConnectionIllegal, pEConnectionDoesNotExist, pSocketFd, pSegRstSet, pRstNotif, pSegAckSet, pSegDataCarrying, pSegSynSet, pSegSynAckSet, pData, pSegFinSet, pSegFinAckSet, pClose, pConnectionAborted, pOkServerReady, pAPORDigest, pOkResp, pErrPermDenied, pSTAT, pLIST, pRETR, pDELE, pNOOP, pRSET, pQUIT, pOkServerReadyTimestamp, pUSER, pPASS, pOkNameValid, pErrNameInvalid, pErrInvalidPass, pErrUnableToLock: Payload;
 eqn pEnd                     = p(0);
     pBool                    = p(1);
     pInt                     = p(2);
@@ -56,6 +56,24 @@ eqn pEnd                     = p(0);
     pSegFinAckSet            = p(20);
     pClose                   = p(21);
     pConnectionAborted       = p(22);
+    pOkServerReady           = p(23);
+    pAPORDigest              = p(24);
+    pOkResp                  = p(25);
+    pErrPermDenied           = p(26);
+    pSTAT                    = p(27);
+    pLIST                    = p(28);
+    pRETR                    = p(29);
+    pDELE                    = p(30);
+    pNOOP                    = p(31);
+    pRSET                    = p(32);
+    pQUIT                    = p(33);
+    pOkServerReadyTimestamp  = p(34);
+    pUSER                    = p(35);
+    pPASS                    = p(36);
+    pOkNameValid             = p(37);
+    pErrNameInvalid          = p(38);
+    pErrInvalidPass          = p(39);
+    pErrUnableToLock         = p(40);
 
 %%% Actions
 act o: Session # Role # Role # Message # Payload; % Output from 1st to 2nd role
